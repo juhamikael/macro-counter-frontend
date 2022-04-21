@@ -1,0 +1,1 @@
+export const defaultApiUrl = "https://macro-splitter-api.herokuapp.com/api/v1"
