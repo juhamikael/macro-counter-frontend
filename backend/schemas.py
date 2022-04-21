@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
-from backend.userdataprocess.ActivityLevel import ActivityType
-from backend.userdataprocess.BMR import Gender
-from backend.userdataprocess.MacroSplit import BodyType
-from backend.userdataprocess.Calories import DietStyle
+from userdataprocess.ActivityLevel import ActivityType
+from userdataprocess.BMR import Gender
+from userdataprocess.MacroSplit import BodyType
+from userdataprocess.Calories import DietStyle
 
 genders = ["male", "female"]
 
@@ -23,16 +23,15 @@ class UserIn(BaseModel):
 
 
 class UserUpdate(BaseModel):
-    name: str
     age: int = Field(gt=10, lt=100, default=20)
     height: int = Field(gt=40, lt=240, default=165)
     weight: int = Field(gt=15, lt=300, default=65)
     activity_level: ActivityType = Field(default=ActivityType.MODERATE)
     diet_style: DietStyle = Field(default=DietStyle.MAINTAIN_WEIGHT)
 
-
     class Config:
         orm_mode = True
+
 
 class UserOut(BaseModel):
     id: int
@@ -52,7 +51,6 @@ class UserOut(BaseModel):
     protein: int
     carbs: int
     fat: int
-
 
     class Config:
         orm_mode = True
@@ -98,6 +96,27 @@ class FoodEaten(BaseModel):
 class CaloriesLeft(BaseModel):
     user_id: int
     calories_left: int
+
+    class Config:
+        orm_mode = True
+
+
+class UpdateAge(BaseModel):
+    age: int
+
+    class Config:
+        orm_mode = True
+
+
+class UpdateHeight(BaseModel):
+    height: int
+
+    class Config:
+        orm_mode = True
+
+
+class UpdateWeight(BaseModel):
+    weight: int
 
     class Config:
         orm_mode = True

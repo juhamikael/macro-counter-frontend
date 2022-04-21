@@ -1,7 +1,15 @@
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Float
+from sqlalchemy import Column, ForeignKey, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy import create_engine
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+engine = create_engine(DATABASE_URL)
+sessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 Base = declarative_base()
 
 
@@ -16,6 +24,7 @@ class User(Base):
     diet_style = Column(String(64))
     body_type = Column(String(64))
     gender = Column(String(64))
+
 
 
 class ProcessedData(Base):
@@ -54,6 +63,9 @@ class FoodEaten(Base):
     fat = Column(Float)
     calories = Column(Integer)
     time = Column(String(64))
+
+
+Base.metadata.create_all(engine)
 
 # class Author():
 #     pass
