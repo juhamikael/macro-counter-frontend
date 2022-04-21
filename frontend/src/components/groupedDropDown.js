@@ -6,8 +6,9 @@ import {parse} from "postcss";
 import axios from "axios"
 import fetchProcessedData from "../components/fetchData"
 import {useNavigate} from "react-router-dom";
+import {defaultApiUrl as apiUrl} from "../apiUrl"
 
-function GroupedDropDowns(props) {
+function GroupedDropDowns() {
     const placeholderDataType = [{value: "string"}, {value: "number"}]
     const inputDataType = ["text", "number"]
     // Weight, Age, Height
@@ -37,7 +38,7 @@ function GroupedDropDowns(props) {
             body_type,
             gender,
         }
-        fetch("http://localhost:8000/api/v1/users", {
+        fetch( `${apiUrl}/users`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(userData)

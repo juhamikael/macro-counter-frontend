@@ -13,9 +13,10 @@ function Navbar(props) {
                         weightData_api
                     </h1>
                     <div className="font-bold">
-                            <button onClick={() => navigate("/")} className={style}>Home</button>
-                            <button onClick={() => navigate("/showdata")} className={style}>Show User   Data</button>
-                            <button onClick={() => navigate("/addfood")} className={style}>Add Food</button>
+                        <button onClick={() => navigate("/")} className={style}>Home</button>
+                        <button onClick={() => navigate("/showdata")} className={style}>Show User Data</button>
+                        <button onClick={() => navigate("/addfood")} className={style}>Add Food</button>
+                        <button onClick={() => navigate("/faq")} className={style}>FAQ</button>
                     </div>
                     <div className="flex justify-between flex-grow">
                         <div className="flex ml-6 items-center"></div>

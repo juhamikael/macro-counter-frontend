@@ -10,6 +10,7 @@ const AddFood = () => {
     const bigButton =
         " w-screen border-1 rounded-b h-12 text-center font-bold bg-green-500 "
     let navigate = useNavigate()
+
     return (
         <div>
             <NavBar

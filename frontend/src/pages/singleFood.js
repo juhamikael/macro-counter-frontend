@@ -2,6 +2,7 @@ import NavBar from "../components/navbar";
 import {useNavigate} from "react-router-dom";
 import React, {useEffect} from "react";
 import axios from "axios";
+import {defaultApiUrl as apiUrl} from "../apiUrl"
 
 const SingleFood = () => {
     const defaultFontColor = "text-gray-500"
@@ -10,7 +11,7 @@ const SingleFood = () => {
     const [food, setFood] = React.useState({})
 
     function fetchFoodById(foodId) {
-        axios.get(`http://localhost:8000/api/v1/foods/${foodId}`)
+        axios.get(`${apiUrl}/foods/${foodId}`)
             .then(res => {
                 setFood(res.data.food)
             }).catch(err => {

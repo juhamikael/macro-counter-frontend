@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import UserPage from "./pages/userPage"
 import AddFood from "./pages/addFood";
 import SingleFood from "./pages/singleFood";
+import Faq from "./pages/Faq";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/user/:id" element={<UserPage/>}/>
                     <Route path="/addFood" element={<AddFood/>}/>
                     <Route path="food/:id" element={<SingleFood/>}/>
+                    <Route path="faq" element={<Faq/>}/>
                 </Routes>
             </Router>
         </div>

@@ -9,7 +9,7 @@ function FetchData(props){
     function fetchBasicData(){
         axios.get("http://localhost:8000/api/users")
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setData(res.data);
             })
             .catch(err => {
@@ -19,7 +19,7 @@ function FetchData(props){
     function fetchProcessedData(){
         axios.get("http://localhost:8000/api/processed_users_data")
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setData(res.data);
             })
             .catch(err => {

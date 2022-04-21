@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import DropDown from "./dropdown";
 import QuantityForm from "./quantityForm";
 import axios from "axios";
+import {defaultApiUrl as apiUrl} from "../apiUrl"
 
 function MealType(mealType) {
 
@@ -21,8 +22,8 @@ const FoodCard = ({uData, fData, foods, addFoodButton, deleteButton}) => {
     const [userCarbs, setCarbs] = useState(0 || []);
     const [userFat, setFat] = useState(0 || []);
     const [calsLeftToday, setCalsLeftToday] = useState(0 || []);
-    const getURL = `http://localhost:8000/api/v1/users/${current_Id}/foods_eaten`
-    let newFoodUrl = `http://localhost:8000/api/v1/foods/eaten/${current_Id}`;
+    const getURL = `${apiUrl}/users/${current_Id}/foods_eaten`
+    let newFoodUrl = `${apiUrl}/foods/eaten/${current_Id}`;
     if (getCalsData) {
         axios.get(getURL)
             .then(res => {
@@ -35,7 +36,7 @@ const FoodCard = ({uData, fData, foods, addFoodButton, deleteButton}) => {
                 }
             })
 
-        axios.get(`http://localhost:8000/api/v1/users/${current_Id}/foods_eaten`)
+        axios.get(`${apiUrl}/users/${current_Id}/foods_eaten`)
             .then(res => {
                 const calsLeft = res.data.daily_calories.daily_calories - res.data.sum_calories.calories
                 if (res.data.food_eaten.length === 0) {
@@ -87,7 +88,7 @@ const FoodCard = ({uData, fData, foods, addFoodButton, deleteButton}) => {
     const handleSingleDelete = async (event, foodId, userId) => {
         event.preventDefault()
         //http://localhost:8000/api/foods/{food_id}/eaten?food_eaten_id=12&user_id=16
-        const deleteURL = `http://localhost:8000/api/v1/foods/user/eatenfoods?food_eaten_id=${foodId}&user_id=${userId}`
+        const deleteURL = `${apiUrl}/foods/user/eatenfoods?food_eaten_id=${foodId}&user_id=${userId}`
         await fetch(deleteURL, {
             method: "DELETE",
             headers: {"Content-Type": "application/json"},
@@ -115,7 +116,7 @@ const FoodCard = ({uData, fData, foods, addFoodButton, deleteButton}) => {
     }
     const deleteAllEatenFoods = async (event, userId) => {
         event.preventDefault()
-        const url = `http://localhost:8000/api/v1/users/${userId}/eaten`
+        const url = `${apiUrl}/users/${userId}/eaten`
         await fetch(url, {
             method: "DELETE",
             headers: {"Content-Type": "application/json"},
@@ -247,7 +248,7 @@ const FoodCard = ({uData, fData, foods, addFoodButton, deleteButton}) => {
                                         <td>{food.quantity} g</td>
                                         <td>{parseInt(food.protein)} g</td>
                                         <td>{parseInt(food.carbs)} g</td>
-                                        <td>{parseInt(food.fat)} g </td>
+                                        <td>{parseInt(food.fat)} g</td>
                                         <td>{food.calories} kcal</td>
                                         {/*<td>{}</td>*/}
 

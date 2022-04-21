@@ -1,5 +1,6 @@
 import FoodForm from "./foodForm";
 import React, {useState} from "react";
+import {defaultApiUrl as apiUrl} from "../apiUrl"
 
 function GroupedAddFood(props) {
     const inputDataType = ["text", "number"]
@@ -12,11 +13,12 @@ function GroupedAddFood(props) {
             carbs: newFood.carbs,
             fat: newFood.fat,
         }
-        fetch("http://localhost:8000/api/v1/foods", {
+        fetch(`${apiUrl}/foods`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(foodData)
+            body: JSON.stringify(foodData),
         })
+            .then(res=> console.log(res.data))
             .then(res => res.json())
             .then(data => {
                 console.log(data)

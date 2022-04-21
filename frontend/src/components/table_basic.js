@@ -2,10 +2,9 @@ import React, {useEffect, useMemo, useState} from "react"
 import {useTable} from "react-table"
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-
 const BasicTable = ({endPoint}) => {
-    const urlEndPoint = `http://localhost:8000/api/v1/${endPoint}`;
-    console.log(endPoint)
+    const urlEndPoint = `https://macro-splitter-api.herokuapp.com/api/v1/${endPoint}`;
+    console.log("Endpoint:" , urlEndPoint)
     const showMoreButtonStyle = " rounded-lg bg-green-200 hover:bg-green-300 hover:text-white p-1.5 w-5/12 font-bold"
     // const deleteButtonStyle = " rounded-lg bg-red-800 p-1.5 w-9/12 text-white"
     const [data, setData] = useState([]);
@@ -18,7 +17,6 @@ const BasicTable = ({endPoint}) => {
                     setData(res.data.users);
                 }
                 else if (endPoint==="foods"){
-                    console.log("foods")
                     setData(res.data.foods);
                 }
 
@@ -39,7 +37,7 @@ const BasicTable = ({endPoint}) => {
                     onClick={() => {
                         console.log("clicked")
                         if (endPoint === "users_processed_data"){
-                            console.log(accessor.row.original.id)
+                            // console.log(accessor.row.original.id)
                             navigate(`/user/${accessor.row.original.id}`)
                         }
                         else if (endPoint === "foods"){

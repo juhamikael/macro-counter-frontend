@@ -1,26 +1,21 @@
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
 import * as React from 'react';
-
+import {defaultApiUrl as apiUrl} from "../apiUrl"
 
 
 const UserCard = ({uData, currentUserId}) => {
     let userData = uData;
     let navigate = useNavigate()
     const userId = currentUserId
-    // Modal
-
-
     const deleteUser = async (event, id) => {
-        axios.delete(`http://localhost:8000/api/v1/users/${id}`)
-            .then(res => {
-                console.log(res.data)
-                navigate(`/showdata`)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-
+        await fetch(`${apiUrl}/users/${id}`, {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+        }).then( e => {
+            navigate(`/showdata`)
+        }).catch(err => {
+            console.log(err)
+        });
     }
 
     return (
