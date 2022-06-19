@@ -10,9 +10,9 @@ const data = {
     title: "FAQ",
     rows: [
         {
-            title: "1. What is this?",
+            title: "What is this?",
             content:
-                <div>
+                <div className="text-lg">
                     <p>
                         <text>Right now, this is just food diary</text>
                     </p>
@@ -24,7 +24,7 @@ const data = {
                 </div>
         },
         {
-            title: "2. How does this works?",
+            title: "How does this works?",
             content:
                 <div>
                     <div>
@@ -71,7 +71,8 @@ const data = {
                                         you have consumed and how much you have left for a day</p>
                                 </div>
                                 <div>
-                                    <p>If you want to delete your user info, you have to remove all the foods from the eaten list first</p>
+                                    <p>If you want to delete your user info, you have to remove all the foods from the
+                                        eaten list first</p>
                                 </div>
                             </div>
                         </div>
@@ -92,9 +93,9 @@ const data = {
 
         },
         {
-            title: "3. The site doesn't work?",
+            title: "The site doesn't work?",
             content:
-                <div>
+                <div className="text-lg">
                     <p>Most likely there is problems with database connection.</p>
                     <p>But if you notice any kind of error in the page.</p>
                     <p>
@@ -104,7 +105,7 @@ const data = {
                 </div>
         },
         {
-            title: "4. Source code",
+            title: "Source code",
             content:
                 <a href="https://github.com/juhamikael/macro-counter-react-fastapi-postgre">
             <span className="text-blue-700 text-xl text-blue-500 hover:text-blue-800">
@@ -113,14 +114,48 @@ const data = {
 
                 </a>
         },
+        // {
+        //     title: "'I don't like to show my information to other people'",
+        //     content:
+        //         <div className="text-lg">
+        //             <p>Totally understandable, for now there is no option to hide it but there will be lot of
+        //                 changes in future, check TODO section
+        //             </p>
+        //         </div>
+        // },
         {
-            title: "5. 'I don't like to show my information to other people'",
-            content: "Totally understandable, for now there is no option to hide it but there will be lot of changes in future, check TODO section"
-        },
-        {
-            title: "6. TODO",
+            title: "Help me, I can't delete my user info",
             content:
-                <div className="ml-3">
+                <div className="text-lg">
+                    <p>
+                        <text>You need to clear the <th>'foods eaten'</th> list by clicking</text>
+                        <text className="font-bold text-red-500 ml-2 italic">'Delete All Food Data'</text>
+                        <text className="ml-2"> before you can delete your user profile</text>
+                    </p>
+                </div>
+        },
+        // {
+        //     title: "Why this site is slow?",
+        //     content:
+        //         <div className="text-lg">
+        //             <p>
+        //                 1. For now, the database is hosted by AWS with free tier so database queries and everything else
+        //                 takes longer than normally
+        //             </p>
+        //             <p>
+        //                 2. API is hosted by Heroku with Free and Hobby plan, so this might cause some lagginess aswell.
+        //                 Api is being shut after 30min of inactivity
+        //             </p>
+        //             <p>
+        //                 3. This user interface is also hosted by Heroku and is with Free and Hobby plan, so this site is
+        //                 also being shut after 30min of inactivity
+        //             </p>
+        //         </div>
+        // },
+        {
+            title: "TODO",
+            content:
+                <div className="ml-3 text-lg">
                     <li>User Login, users can't see other users information</li>
                     <li>Possibility to change information</li>
                     <li>Possibility to keep track gym/cardio training</li>
@@ -131,27 +166,26 @@ const data = {
                 </div>
         },
         {
-            title: "7. Contact",
+            title: "Contact",
             content:
-                <div>
+                <div className="text-lg">
                     <p>If you want to see some other features, want to help with production or just have any other
                         ideas</p>
                     <p>
                         <span className="font-bold">Please contact me at: </span>
-                        <address><a href="mailto:juhamikael@protonmail.com">Juhamikael@protonmail.com</a></address>
+                        <span>Juhamikael@protonmail.com</span>
                     </p>
                 </div>
         }
 
     ]
-
 }
 
 
 const styles = {
     // bgColor: 'white',
     titleTextSize: "2rem",
-    rowTitleTextSize: "1.2rem",
+    rowTitleTextSize: "1.4rem",
     rowContentTextSize: "1rem",
     titleTextColor: "green",
     linkColor: "blue",
@@ -162,7 +196,7 @@ const styles = {
 
 const config = {
     animate: true,
-    // arrowIcon: "v",
+    arrowIcon: "n",
     tabFocus: true
 };
 

@@ -2,8 +2,10 @@ import React, {useEffect, useMemo, useState} from "react"
 import {useTable} from "react-table"
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {defaultApiUrl} from "../apiUrl";
 const BasicTable = ({endPoint}) => {
-    const urlEndPoint = `https://macro-splitter-api.herokuapp.com/api/v1/${endPoint}`;
+    const urlEndPoint = `${defaultApiUrl}/${endPoint}`;
+    // const urlEndPoint = `https://macro-splitter-api.herokuapp.com/api/v1/${endPoint}`;
     console.log("Endpoint:" , urlEndPoint)
     const showMoreButtonStyle = " rounded-lg bg-green-200 hover:bg-green-300 hover:text-white p-1.5 w-5/12 font-bold"
     // const deleteButtonStyle = " rounded-lg bg-red-800 p-1.5 w-9/12 text-white"

@@ -262,3 +262,18 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/python,react,intellij+all
 
 .env
+backend/macrocounter-env/Scripts/deactivate.bat
+backend/macrocounter-env/Scripts/dotenv.exe
+backend/macrocounter-env/Scripts/mako-render.exe
+backend/macrocounter-env/Scripts/pip.exe
+backend/macrocounter-env/Scripts/pip3.10.exe
+backend/macrocounter-env/Scripts/pip3.exe
+backend/macrocounter-env/Scripts/python.exe
+backend/macrocounter-env/Scripts/pythonw.exe
+backend/macrocounter-env/Scripts/uvicorn.exe
+backend/macrocounter-env/Include/site/python3.10/greenlet/greenlet.h
+backend/macrocounter-env/pyvenv.cfg
+backend/macrocounter-env/Scripts/activate
+backend/macrocounter-env/Scripts/activate.bat
+backend/macrocounter-env/Scripts/Activate.ps1
+backend/macrocounter-env/Scripts/alembic.exe
