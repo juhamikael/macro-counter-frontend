@@ -49,7 +49,13 @@ def get_user_base_info(user_id: int):
 
 @router.get("/api/v1/users/processed_data/{user_id}", tags=["Get"], summary="Get user processed data by id ")
 def get_user_processed_data_by_id(user_id: int):
-    query = select_user_where_id(user_id)
+    ## Check that the user exists
+    user = db.session.query(User).filter(User.id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    ## Get the processed data
+
+    query = query = db.session.query(ProcessedData).filter(ProcessedData.id == user_id).first()
     return {"user": query}
 
 
