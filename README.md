@@ -5,6 +5,8 @@ However, this is still in developement so there is bugs in API, Frontend & Backe
 
 Once the project is built, go to http://localhost:3000/faq for a better overview.
 
+### The database of this project was previously hosted on AWS RDS and the frontend was hosted on Heroku, but it had to be taken down due to a lack of time. 
+
 --- 
 
 1. When the page is opened, the user's view is as follows. 
