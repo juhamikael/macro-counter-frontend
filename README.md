@@ -124,8 +124,8 @@ uvicorn main:app --reload
 
 The application should now be running and accessible through a web browser 
 You should be able to interact with the application and use its features.
-	1. Frontend: `npm start` [http://localhost:3000/](http://localhost:3000/)
-	2. Backend: `uvicorn main:app --reload` [http://localhost:8000/](http://localhost:8000/)
+1. Frontend: `npm start` [http://localhost:3000/](http://localhost:3000/)
+2. Backend: `uvicorn main:app --reload` [http://localhost:8000/](http://localhost:8000/)
 	
 Please note that the instructions in this guide are specific to Windows 10. If you are running on a different operating system, some of the commands or steps may need to be adjusted accordingly.
 
