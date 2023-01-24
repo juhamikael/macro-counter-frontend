@@ -1,6 +1,7 @@
 # macro-counter-react-fastapi-postgre
 ## What this is?
 This project is a fullstack food diary. It's not confirmed yet, but maybe later, you can log your gym/cardio training, build own training program or diet and more!
+However, this is still in developement so there is bugs in API, Frontend & Backend
 
 Once the project is built, go to http://localhost:3000/faq for a better overview.
 
@@ -22,6 +23,9 @@ The user needs to enter:
 8. * Body type
 ```
 
+> ## The foods.csv file contains test data for the "food" table in a database or application. To avoid duplicating existing data, it is suggested that you delete the test data from the database, before adding new foods from the frontend. 
+
+> ## NOTE! If you try to delete user you made, make sure there is no any foods listed in "foods eaten"
 
 
 # Guide
