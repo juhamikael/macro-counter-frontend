@@ -54,7 +54,6 @@ def get_user_processed_data_by_id(user_id: int):
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
     ## Get the processed data
-
     query = query = db.session.query(ProcessedData).filter(ProcessedData.id == user_id).first()
     return {"user": query}
 
@@ -119,6 +118,14 @@ def update_user_weight(user_id: int, request: SchemaUpdateWeight):
 @router.delete("/api/v1/users/{user_id}", tags=["Delete"], summary="Delete user by id")
 def delete_user(user_id: int):
     check_if_exist = select_user_where_id(user_id)
-    db.session.query(User).filter(User.id == user_id).delete(synchronize_session=False)
-    db.session.commit()
+    if check_if_exist is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    try:
+        db.session.query(User).filter(User.id == user_id).delete(synchronize_session=False)
+        db.session.query(ProcessedData).filter(ProcessedData.id == user_id).delete(synchronize_session=False)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise HTTPException(status_code=500, detail="Error in deleting user")
     return f"User {user_id} deleted"
+    
