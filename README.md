@@ -1,5 +1,5 @@
 # macro-counter-react-fastapi-postgre
-## What this is?
+## What is this?
 This project is a fullstack food diary. It's not confirmed yet, but maybe later, you can log your gym/cardio training, build own training program or diet and more!
 However, this is still in developement so there is bugs in API, Frontend & Backend
 
