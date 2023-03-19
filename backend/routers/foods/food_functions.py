@@ -24,15 +24,19 @@ def add_and_commit(model, db: Session):
     db.refresh(model)
 
 
-def post_food(request, query, db: Session):
-    query_name = db.query(models.Food).filter(models.Food.name == request.name).first()
+def post_food(request, db: Session):
+    last_food = db.query(models.Food).order_by(models.Food.id.desc()).first()
+    new_id = last_food.id + 1 if last_food else 1
     new_food = models.Food(
+        id=new_id,
         name=request.name,
         protein=request.protein,
         carbs=request.carbs,
         fat=request.fat,
         calories=request.carbs * 4 + request.fat * 9 + request.protein * 4
     )
+    query = db.query(models.Food).filter(models.Food.id == new_id).first()
+    query_name = db.query(models.Food).filter(models.Food.name == request.name).first()
     if query:
         raise HTTPException(status_code=400, detail="Food already exists")
     elif query_name is not None:

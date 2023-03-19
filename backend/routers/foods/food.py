@@ -31,12 +31,7 @@ def get_food_by_id(food_id: int):
 # ######################################################################################################################
 @router.post("/api/v1/foods", tags=["Post"], summary="Create food")
 async def create_food(new_food: FoodIn_schema):
-    query = db.session.query(Food).filter(Food.name == new_food.name,
-                                          Food.protein == new_food.protein,
-                                          Food.carbs == new_food.carbs,
-                                          Food.fat == new_food.fat
-                                          ).first()
-    post_food = food_f.post_food(new_food, query, db.session)
+    post_food = food_f.post_food(new_food, db.session)
     return post_food
 
 
