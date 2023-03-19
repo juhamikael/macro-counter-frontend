@@ -57,7 +57,6 @@ class UserOut(BaseModel):
 
 
 class FoodIn(BaseModel):
-    id: int
     name: str
     protein: float
     carbs: float
