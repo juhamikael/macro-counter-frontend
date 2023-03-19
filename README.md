@@ -1,4 +1,15 @@
 # macro-counter-react-fastapi-postgre
+
+## Hosting
+- This frontend will be hosted on Vercel https://projects.macrocounter.juhamikael.me
+- Database is hosted on railway.app
+- API hosted is on Railway.app 
+	- Repository: https://github.com/juhamikael/macrocounter-api
+	- API: https://web-production-9891.up.railway.app/docs#/
+
+
+
+
 ## What is this?
 This project is a fullstack food diary. It's not confirmed yet, but maybe later, you can log your gym/cardio training, build own training program or diet and more!
 However, this is still in developement so there is bugs in API, Frontend & Backend
