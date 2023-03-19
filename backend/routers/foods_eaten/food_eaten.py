@@ -24,12 +24,12 @@ def get_food_eaten_by_user(user_id: int):
     sum_protein = db.session.query(func.sum(FoodEaten.protein).label("protein")).filter(
         FoodEaten.user_id == user_id).first()
     return {"food_eaten": food_eaten,
-            "sum_calories": sum_calories,
-            "sum_fat": sum_fat,
-            "sum_carbs": sum_carbs,
-            "sum_protein": sum_protein,
-            "daily_calories": user_daily_calories
-            }
+            "sum_calories": sum_calories[0],
+            "sum_fat": sum_fat[0],
+            "sum_carbs": sum_carbs[0],
+            "sum_protein": sum_protein[0],
+            "daily_calories": user_daily_calories[0]
+    }
 
 # ######################################################################################################################
 # POST
