@@ -49,8 +49,8 @@ def get_user_base_info(user_id: int):
 
 @router.get("/api/v1/users/processed_data/{user_id}", tags=["Get"], summary="Get user processed data by id ")
 def get_user_processed_data_by_id(user_id: int):
-    query = select_user_where_id(user_id)
-    return {"user": query}
+    user = db.session.query(ProcessedData).filter(User.id == user_id).first()
+    return {"user": user}
 
 
 # ######################################################################################################################
