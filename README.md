@@ -4,7 +4,7 @@
 - This frontend will be hosted on Vercel https://projects.macrocounter.juhamikael.me
 - Database is hosted on railway.app
 - API hosted is on Railway.app 
-	- Repository: 
+	- Repository: https://github.com/juhamikael/macrocounter-api
 	- API: https://web-production-9891.up.railway.app/docs#/
 
 
