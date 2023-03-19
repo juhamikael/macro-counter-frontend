@@ -38,18 +38,20 @@ function GroupedDropDowns() {
             body_type,
             gender,
         }
-        fetch( `${apiUrl}/users`, {
+        fetch(`${apiUrl}/users`, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+
+
             body: JSON.stringify(userData)
         }).then(res =>
             res.json().then(data => {
                 if (res.status === 200) {
                     navigate("/showdata")
                 }
-                // else {
-                //     console.log("Status", res.status)
-                // }
             })
         )
     }
@@ -94,7 +96,7 @@ function GroupedDropDowns() {
                         onChange={(e) => setAge(e.target.value)}
                     />
                     <DropDown
-                        width ={WIDTH}
+                        width={WIDTH}
                         marginLeft={MARGINLEFT}
                         option={enumArray[0]}
                         title="activity level"
@@ -102,7 +104,7 @@ function GroupedDropDowns() {
                         onChange={setActivityType}
                     />
                     <DropDown
-                        width = {WIDTH}
+                        width={WIDTH}
                         marginLeft={MARGINLEFT}
                         option={enumArray[1]}
                         title="diet style"
@@ -110,7 +112,7 @@ function GroupedDropDowns() {
                         onChange={setDietStyle}
                     />
                     <DropDown
-                        width ={WIDTH}
+                        width={WIDTH}
                         marginLeft={MARGINLEFT}
                         option={enumArray[2]}
                         title="gender"
@@ -118,7 +120,7 @@ function GroupedDropDowns() {
                         onChange={setGender}
                     />
                     <DropDown
-                        width ={WIDTH}
+                        width={WIDTH}
                         marginLeft={MARGINLEFT}
                         option={enumArray[3]}
                         title="body type"

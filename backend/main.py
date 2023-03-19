@@ -13,7 +13,7 @@ app = FastAPI()
 DATABASE_URL = os.getenv('DATABASE_URL')
 origins = [
     "http://localhost:3000",
-    "http://localhost",
+    "http://localhost:*",
     "http://localhost:8080",
     "http://localhost:5050",
     "http://localhost:8000",
