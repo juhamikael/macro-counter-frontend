@@ -277,3 +277,5 @@ backend/macrocounter-env/Scripts/activate
 backend/macrocounter-env/Scripts/activate.bat
 backend/macrocounter-env/Scripts/Activate.ps1
 backend/macrocounter-env/Scripts/alembic.exe
+**/env/**
+backend/macrocounter-env
