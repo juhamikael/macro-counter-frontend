@@ -12,6 +12,7 @@ const BasicTable = ({endPoint}) => {
     const [data, setData] = useState([]);
     let navigate = useNavigate()
 
+
     function fetchProcessedData() {
         axios.get(urlEndPoint)
             .then(res => {
